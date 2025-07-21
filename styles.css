@@ -446,8 +446,10 @@ section {
 
 .bio-image {
     width: 100%;
-    height: 250px;
+    height: 300px; /* or whatever height you want */
     object-fit: cover;
+    object-position: center top; /* This moves the focus to the top center */
+    border-radius: 8px;
 }
 
 .bio-content {
