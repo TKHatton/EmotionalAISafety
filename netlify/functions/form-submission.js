@@ -15,7 +15,7 @@ exports.handler = async (event, context) => {
     const { name, email, organization, 'event-type': eventType, message } = formData;
     
     // Your Airtable configuration
-    const AIRTABLE_BASE_ID = 'YOUR_BASE_ID_HERE'; // Replace with your base ID
+    const AIRTABLE_BASE_ID = 'appwHp9kyPln3L196'; // Replace with your base ID
     const AIRTABLE_TOKEN = process.env.AIRTABLE_TOKEN; // We'll set this as environment variable
     const TABLE_NAME = 'Emotional AI Speaking Inquiries'; // Replace if your table name is different
     
