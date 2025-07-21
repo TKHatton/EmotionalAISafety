@@ -183,8 +183,9 @@
                 </div>
                 
                 <div class="contact-form-container">
-                    <form class="contact-form" id="speakingForm" name="speaking-inquiry" method="POST" data-netlify="true">
+                    <form class="contact-form" id="speakingForm" name="speaking-inquiry" method="POST" data-netlify="true" action="/.netlify/functions/form-submission">
                         <h3>Get in Touch</h3>
+                        <input type="hidden" name="form-name" value="speaking-inquiry" />
                         <div class="form-group">
                             <label for="name">Name</label>
                             <input type="text" id="name" name="name" required>
