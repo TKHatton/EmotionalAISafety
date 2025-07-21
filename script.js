@@ -82,11 +82,15 @@ document.addEventListener('DOMContentLoaded', function() {
     // Contact form submission
     const contactForm = document.getElementById('speakingForm');
     if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            handleFormSubmission(this);
-        });
-    }
+contactForm.addEventListener('submit', function(e) {
+    // Let Netlify handle the submission, just show loading state
+    const submitButton = this.querySelector('button[type="submit"]');
+    const originalText = submitButton.textContent;
+    submitButton.textContent = 'Sending...';
+    submitButton.disabled = true;
+    
+    // Don't prevent default - let Netlify handle it!
+});
 
     // Button hover effects
     document.querySelectorAll('.btn').forEach(button => {
@@ -208,79 +212,6 @@ function showDownloadFeedback(button) {
         button.textContent = originalText;
         button.style.background = '';
     }, 2000);
-}
-
-// Handle form submission
-function handleFormSubmission(form) {
-    const formData = new FormData(form);
-    const data = Object.fromEntries(formData);
-    
-    // Show loading state
-    const submitButton = form.querySelector('button[type="submit"]');
-    const originalText = submitButton.textContent;
-    submitButton.textContent = 'Sending...';
-    submitButton.disabled = true;
-    
-    // Simulate form submission (in real implementation, you'd send to a server)
-    setTimeout(() => {
-        // Show success message
-        showFormSuccessMessage();
-        form.reset();
-        
-        // Reset button
-        submitButton.textContent = originalText;
-        submitButton.disabled = false;
-    }, 2000);
-}
-
-// Show form success message
-function showFormSuccessMessage() {
-    const message = document.createElement('div');
-    message.className = 'success-message';
-    message.innerHTML = `
-        <div style="
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-            z-index: 10000;
-            text-align: center;
-            max-width: 400px;
-        ">
-            <h3 style="color: #1e3a8a; margin-bottom: 1rem;">Message Sent!</h3>
-            <p style="margin-bottom: 1.5rem;">Thank you for your interest. We'll get back to you within 24 hours.</p>
-            <button onclick="this.parentElement.parentElement.remove()" style="
-                background: #d97706;
-                color: white;
-                border: none;
-                padding: 10px 20px;
-                border-radius: 8px;
-                cursor: pointer;
-            ">Close</button>
-        </div>
-        <div style="
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-            z-index: 9999;
-        " onclick="this.parentElement.remove()"></div>
-    `;
-    
-    document.body.appendChild(message);
-    
-    // Auto-remove after 5 seconds
-    setTimeout(() => {
-        if (message.parentElement) {
-            message.remove();
-        }
-    }, 5000);
 }
 
 // Show coming soon message for video
