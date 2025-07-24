@@ -419,22 +419,43 @@ section {
     font-size: 1.2rem;
 }
 
-.pricing {
-    background: linear-gradient(135deg, var(--light-gray) 0%, rgba(30, 58, 138, 0.05) 100%);
-    padding: 2rem;
-    border-radius: var(--border-radius-large);
-    border: 1px solid rgba(30, 58, 138, 0.1);
+.pricing-options {
+    margin: 1.5rem 0;
 }
 
-.pricing h3 {
-    color: var(--primary-blue);
+.pricing-option {
+    background: #f8f9fa;
+    padding: 1rem;
     margin-bottom: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid #e67e22;
 }
 
-.pricing-text {
-    font-size: 1.2rem;
-    color: var(--dark-gray);
-    margin-bottom: 1.5rem;
+.option-header {
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.pricing-option p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.testing-note {
+    background: #e8f5e8;
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+    text-align: center;
+}
+
+.testing-note p {
+    margin: 0;
+    color: #2d5a2d;
+    font-style: italic;
 }
 
 .creator-bio {
